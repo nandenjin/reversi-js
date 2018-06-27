@@ -41,6 +41,12 @@ class Cursor {
 
   }
 
+  isEqualTo( c ) {
+
+    return this.x === c.x && this.y === c.y;
+
+  }
+
 }
 
 export { Cursor };
