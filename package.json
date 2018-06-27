@@ -21,7 +21,7 @@
   "homepage": "https://github.com/nandenjin/reversi-js#readme",
   "devDependencies": {
     "google-closure-compiler": "^20180610.0.2",
-    "rollup": "^0.61.2"
+    "rollup": "^0.62.0"
   },
   "dependencies": {}
 }
