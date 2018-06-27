@@ -1,0 +1,28 @@
+
+.reversi-board {
+  border: 1px solid #000;
+}
+
+.reversi-board__cell {
+  border: 1px solid #000;
+  background: #030;
+}
+
+.reversi-board__cell:before{
+  content: '';
+  display: inline-block;
+  width: 80%;
+  height: 80%;
+  margin: 10%;
+  border-radius: 50%;
+}
+
+.reversi-board__cell.reversi-board__cell--black:before{
+  background-color: #000;
+  border: 1px solid #444;
+}
+
+.reversi-board__cell.reversi-board__cell--white:before{
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
