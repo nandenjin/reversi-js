@@ -171,6 +171,8 @@ class Board {
       this.setPiece( cursor, color );
       affected.forEach( c => this.setPiece( c, color ) );
 
+      this.emit( 'put', cursor, affected );
+
     }
 
     return affected;
