@@ -47,6 +47,8 @@ class HTMLRenderer extends Renderer {
 
     this.domElement = container;
 
+    board.on( 'put', ( ...e ) => this._onPut( ...e ) );
+
     this.update();
 
   }
@@ -96,6 +98,28 @@ class HTMLRenderer extends Renderer {
     if( color === undefined || color === null ) return this;
 
     return this.board.putPiece( cursor, color );
+
+  }
+
+
+  _onPut( cursor, affecteds ) {
+
+    const board = this.board;
+    const cells = this.cells;
+
+    board.getCellCursors().forEach( c => {
+
+      const dom = cells[ c.y ][ c.x ];
+
+      dom.classList.remove( 'reversi-board__cell--last-put' );
+      dom.classList.remove( 'reversi-board__cell--last-affected' );
+
+      if( c.isEqualTo( cursor ) ) dom.classList.add( 'reversi-board__cell--last-put' );
+      if( affecteds.some( a => c.isEqualTo( a ) ) ) dom.classList.add( 'reversi-board__cell--last-affected' );
+
+    } );
+
+    return;
 
   }
 

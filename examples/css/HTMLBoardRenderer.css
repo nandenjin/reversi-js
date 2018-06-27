@@ -17,12 +17,20 @@
   border-radius: 50%;
 }
 
-.reversi-board__cell.reversi-board__cell--black:before{
+.reversi-board__cell--black:before{
   background-color: #000;
   border: 1px solid #444;
 }
 
-.reversi-board__cell.reversi-board__cell--white:before{
+.reversi-board__cell--white:before{
   background-color: #fff;
   border: 1px solid #ccc;
+}
+
+.reversi-board__cell--last-put:before{
+  border-color: #f80;
+}
+
+.reversi-board__cell--last-affected:before{
+  border-color: #ff0;
 }
