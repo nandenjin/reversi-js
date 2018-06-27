@@ -188,11 +188,11 @@ class Board {
   }
 
 
-  emit( type, event ) {
+  emit( type, ...events ) {
 
     if( !this._listeners[ type ] ) return this;
 
-    this._listeners[ type ].forEach( listener => listener( event ) );
+    this._listeners[ type ].forEach( listener => listener( ...events ) );
 
     return this;
 
