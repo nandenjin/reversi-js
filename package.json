@@ -6,7 +6,8 @@
   "module": "build/reversi.module.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "minify": "npx google-closure-compiler --js=build/reversi.js --js_output_file=build/reversi.min.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/nandenjin/reversi-js#readme",
   "devDependencies": {
+    "google-closure-compiler": "^20180610.0.2",
     "rollup": "^0.61.2"
   },
   "dependencies": {}
