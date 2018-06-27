@@ -1,0 +1,25 @@
+{
+  "name": "reversi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/reversi.js",
+  "module": "build/reversi.module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandenjin/reversi-js.git"
+  },
+  "author": "Kazumi Inada <hello@nandenjin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nandenjin/reversi-js/issues"
+  },
+  "homepage": "https://github.com/nandenjin/reversi-js#readme",
+  "devDependencies": {
+    "rollup": "^0.61.2"
+  },
+  "dependencies": {}
+}
