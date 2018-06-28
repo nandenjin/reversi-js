@@ -1,3 +1,6 @@
 src
+example
+!example/css
+!example/js
 node_modules
 .DS_Store
