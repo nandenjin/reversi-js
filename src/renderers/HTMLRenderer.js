@@ -115,8 +115,8 @@ class HTMLRenderer extends Renderer {
 
   _onClicked( cursor, color ) {
 
-    if( !this.clickable ) return this;
-    if( color === undefined || color === null ) return this;
+    if( !this.clickable ) return null;
+    if( color === undefined || color === null ) return null;
 
     const r = this.board.putPiece( cursor, color );
     if( r ) this.emit( 'click', cursor );
