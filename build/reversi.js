@@ -329,6 +329,8 @@
       const w = board.width;
       const h = board.height;
 
+      this._listeners = {};
+
       const container = document.createElement( 'div' );
       container.classList.add( 'reversi-board' );
       container.style.cssText = `display: grid; grid-template-columns: repeat(${w}, 1fr); grid-template-rows: repeat(${h}, 1fr);`;
@@ -396,6 +398,27 @@
     setRole( role ) {
 
       this.role = role;
+
+      return this;
+
+    }
+
+
+    on( type, listener ) {
+
+      this._listeners[ type ] = this._listeners[ type ] || [];
+      this._listeners[ type ].push( listener );
+
+      return this;
+
+    }
+
+
+    emit( type, ...events ) {
+
+      if( !this._listeners[ type ] ) return this;
+
+      this._listeners[ type ].forEach( listener => listener( ...events ) );
 
       return this;
 
