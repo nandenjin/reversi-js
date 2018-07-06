@@ -185,16 +185,35 @@
       options = options || {};
       const dryRun = options.dryRun;
 
+      const affected = this.simulateEffect( cursor, color );
+
+      if( affected.length === 0 ) return null;
+
+      if( !dryRun ){
+
+        this.setPiece( cursor, color );
+        affected.forEach( c => this.setPiece( c, color ) );
+
+        this.emit( 'put', cursor, affected );
+
+      }
+
+      return affected;
+
+    }
+
+
+    simulateEffect( cursor, color ) {
+
       const colors = this.constructor.colors;
+      const affected = [];
 
       if( ![ colors.BLACK, colors.WHITE ].includes( color ) )
         console.warn( "Board.getPiece: color must be Board.colors.BLACK or Board.colors.WHITE." );
 
-      if( this.getPiece( cursor ) !== colors.EMPTY ) return null;
-
       const opColor = color === colors.BLACK ? colors.WHITE : colors.BLACK;
 
-      const affected = [];
+      if( this.getPiece( cursor ) !== colors.EMPTY ) return null;
 
       [ [ 0, 1 ], [ 1, 0 ], [ 1, 1 ], [ -1, 0 ], [ 0, -1 ], [ -1, -1 ], [ -1, 1 ], [ 1, -1 ] ]
         .forEach( d => {
@@ -209,7 +228,7 @@
 
             if( pieceColor == color ) {
 
-              affected.push.apply( affected, t );
+              affected.push( ...t );
               break;
 
             }else if( pieceColor == opColor ) {
@@ -228,18 +247,22 @@
 
         } );
 
-      if( affected.length === 0 ) return null;
-
-      if( !dryRun ){
-
-        this.setPiece( cursor, color );
-        affected.forEach( c => this.setPiece( c, color ) );
-
-        this.emit( 'put', cursor, affected );
-
-      }
-
       return affected;
+
+    }
+
+    getSuggestions( color ) {
+
+      const result = [];
+
+      this.getCellCursors().forEach( cursor => {
+
+        const affected = this.simulateEffect( cursor, color );
+        if( affected && affected.length > 0 ) result.push( cursor );
+
+      } );
+
+      return result;
 
     }
 
