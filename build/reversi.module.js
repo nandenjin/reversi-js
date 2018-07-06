@@ -114,6 +114,17 @@ class Board {
   }
 
 
+  toArray() {
+
+    const result = [];
+
+    this.data.forEach( d => d.forEach( e => result.push( e ) ) );
+
+    return result;
+
+  }
+
+
   getCellCursors() {
 
     const cursors = [];
