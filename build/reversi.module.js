@@ -181,6 +181,7 @@ class Board {
 
     const affected = this.simulateEffect( cursor, color );
 
+    if( !affected ) return null;
     if( affected.length === 0 ) return null;
 
     if( !dryRun ){
