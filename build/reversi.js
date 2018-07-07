@@ -113,7 +113,13 @@
 
     loadArray( array ) {
 
-      array.forEach( ( v, i )  => this.data[ Math.floor( i / this.width ) ][ i % this.width ] = v );
+      array.forEach( ( v, i )  => this.setPiece(
+        new Cursor(
+          i % this.width,
+          Math.floor( i / this.width ),
+        ),
+        v,
+      ) );
 
       return this;
 
