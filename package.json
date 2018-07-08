@@ -1,6 +1,6 @@
 {
   "name": "reversi",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "main": "build/reversi.js",
   "module": "build/reversi.module.js",
