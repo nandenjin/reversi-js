@@ -198,6 +198,8 @@
 
       if( !dryRun ){
 
+        this.emit( 'beforePut', cursor, affected );
+
         this.setPiece( cursor, color );
         affected.forEach( c => this.setPiece( c, color ) );
 
