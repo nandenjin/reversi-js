@@ -22,8 +22,8 @@
   "homepage": "https://github.com/nandenjin/reversi-js#readme",
   "devDependencies": {
     "chokidar-cli": "^1.2.0",
-    "google-closure-compiler": "^20180610.0.2",
-    "rollup": "^0.62.0"
+    "google-closure-compiler": "^20190121.0.0",
+    "rollup": "^1.2.1"
   },
   "dependencies": {}
 }
